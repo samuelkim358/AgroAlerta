@@ -3,17 +3,20 @@
    ============================================================ */
 
 body {
-  display: block;
+  display: block; /* Esto está bien */
   min-height: 100vh;
+  height: auto; /* Agregamos esto para que pueda crecer si hay mucho contenido */
   background: var(--bg);
+  overflow-y: auto; /* Aseguramos que el scroll vertical esté activo */
 }
 
 .auth-wrapper {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: center; /* Centra verticalmente cuando sobra espacio */
   justify-content: center;
-  padding: 24px;
+  padding: 40px 24px; /* Aumentamos el padding superior e inferior */
+  box-sizing: border-box; /* Asegura que el padding no rompa el tamaño */
 }
 
 /* ─── Tarjeta central ─── */
