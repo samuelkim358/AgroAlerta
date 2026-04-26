@@ -3,6 +3,11 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    /* ESTO ARREGLA EL SCROLL SIN MOVER EL DISEÑO */
+    flex: 1;
+    overflow-y: auto; 
+    height: calc(100vh - 80px); /* 80px es el estimado de tu topbar */
 }
 
 /* Banner cuando ya está inscrito */
@@ -23,7 +28,8 @@
 /* Grid de tarjetas */
 .collab-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    /* Cambiamos 360px por 100% o un valor menor para móviles */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
     gap: 25px;
 }
 
