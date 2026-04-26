@@ -10,6 +10,16 @@
     "response": ""
   },
   {
+    "id": "tck-004",
+    "user": "Roberto Domínguez",
+    "initials": "RD",
+    "subject": "Posible plaga en calabaza",
+    "message": "He notado manchas blancas en las hojas de mi cultivo de calabaza tras la última lluvia.",
+    "date": "2026-04-24",
+    "status": "no_resuelto",
+    "response": ""
+  },
+  {
     "id": "tck-002",
     "user": "Laura Gómez",
     "initials": "LG",
@@ -18,6 +28,16 @@
     "date": "2026-04-24",
     "status": "resuelto",
     "response": "Se ajustó el umbral de predicción meteorológica en la región."
+  },
+  {
+    "id": "tck-005",
+    "user": "Elena Vázquez",
+    "initials": "EV",
+    "subject": "Daño por granizo en hortalizas",
+    "message": "El granizo de ayer dañó parte de la estructura de las hojas, ¿qué abono recomiendan para recuperar la planta?",
+    "date": "2026-04-23",
+    "status": "resuelto",
+    "response": "Se recomienda aplicar un fertilizante foliar rico en aminoácidos para reducir el estrés de la planta."
   },
   {
     "id": "tck-003",
