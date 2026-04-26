@@ -1,0 +1,471 @@
+/* ============================================================
+   cultivos.css — AgroAlerta · Tus Cultivos + Agregar Cultivo
+   ============================================================ */
+
+/* ─── Área de contenido ─── */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 22px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── Botones del topbar ─── */
+.btn-agregar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: var(--accent-green);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .18s;
+}
+.btn-agregar:hover { background: #4b7b4d; }
+
+.btn-volver {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color .18s, color .18s;
+}
+.btn-volver:hover {
+  border-color: var(--accent-green);
+  color: var(--text-dark);
+}
+
+/* ═══════════════════════════════════════════
+   TUS CULTIVOS
+═══════════════════════════════════════════ */
+
+/* ─── Tira de estadísticas ─── */
+.cultivos-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.cultivo-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  animation: fadeUp .4s ease both;
+  transition: transform .2s, box-shadow .2s;
+}
+.cultivo-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 45, 31, .1);
+}
+.cultivo-stat-card:nth-child(1) { animation-delay: .05s; }
+.cultivo-stat-card:nth-child(2) { animation-delay: .10s; }
+.cultivo-stat-card:nth-child(3) { animation-delay: .15s; }
+.cultivo-stat-card:nth-child(4) { animation-delay: .20s; }
+
+.cultivo-stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+.cultivo-stat-icon.green  { background: rgba(76, 175, 125, .12); }
+.cultivo-stat-icon.olive  { background: rgba(138, 158, 58, .12); }
+.cultivo-stat-icon.orange { background: rgba(224, 123, 57, .12); }
+.cultivo-stat-icon.blue   { background: rgba(74, 144, 184, .12); }
+
+.cultivo-stat-label {
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.cultivo-stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+/* ─── Grid de tarjetas de cultivo ─── */
+.cultivos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* ─── Empty state ─── */
+.cultivos-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+.empty-icon { font-size: 48px; }
+.cultivos-empty p { font-size: 15px; }
+.btn-agregar-main {
+  margin-top: 6px;
+  padding: 10px 22px;
+  border-radius: 20px;
+  background: var(--accent-green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .18s;
+}
+.btn-agregar-main:hover { background: #4b7b4d; }
+
+/* ─── Tarjeta de cultivo ─── */
+.cultivo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeUp .4s ease both;
+  transition: transform .2s, box-shadow .2s;
+}
+.cultivo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 45, 31, .1);
+}
+
+/* Top de la tarjeta: ícono + info + ha */
+.cultivo-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cultivo-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.cultivo-info { flex: 1; min-width: 0; }
+.cultivo-nombre {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.cultivo-tipo {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+.cultivo-ha {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-green);
+  white-space: nowrap;
+}
+
+/* Barra de progreso */
+.cultivo-progreso-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cultivo-progreso-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: var(--text-light);
+}
+.cultivo-dias-text {
+  font-weight: 500;
+  color: var(--text-mid);
+}
+.cultivo-progreso-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cultivo-progreso-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-green), #7abf7c);
+  border-radius: 4px;
+  transition: width .6s ease;
+}
+.cultivo-progreso-pct {
+  font-size: 10.5px;
+  color: var(--text-light);
+  text-align: right;
+}
+
+/* Detalles: variedad y riego */
+.cultivo-detalles {
+  display: flex;
+  gap: 10px;
+}
+.cultivo-detalle-item {
+  flex: 1;
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.detalle-label {
+  font-size: 10.5px;
+  color: var(--text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.detalle-valor {
+  font-size: 13px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Historial */
+.cultivo-historial {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.historial-titulo {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-mid);
+  margin-bottom: 2px;
+}
+.historial-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+}
+.historial-fecha {
+  color: var(--text-light);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.historial-desc { color: var(--text-mid); line-height: 1.4; }
+
+/* ═══════════════════════════════════════════
+   AGREGAR CULTIVO
+═══════════════════════════════════════════ */
+
+.content-form {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Card del formulario */
+.agregar-card {
+  width: 100%;
+  max-width: 680px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 32px;
+  animation: fadeUp .4s ease both;
+}
+
+/* Header de la card */
+.agregar-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.agregar-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(90, 143, 92, .1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.agregar-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--text-dark);
+}
+.agregar-subtitulo {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 3px;
+}
+
+/* Mensaje de estado */
+.cultivo-message {
+  font-size: 13px;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+.cultivo-message.success {
+  background: rgba(76, 175, 125, .08);
+  border: 1px solid rgba(76, 175, 125, .18);
+  color: #2f7d53;
+}
+.cultivo-message.error {
+  background: rgba(220, 70, 70, .08);
+  border: 1px solid rgba(220, 70, 70, .18);
+  color: #b84040;
+}
+
+/* Formulario */
+.agregar-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.form-row-single {
+  grid-template-columns: 1fr;
+  max-width: 50%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+}
+.req { color: var(--orange); }
+
+.form-group input,
+.form-group select {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-dark);
+  background: var(--surface);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238a9e8b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(90, 143, 92, .12);
+}
+
+/* Nota informativa */
+.form-note {
+  font-size: 12px;
+  color: var(--text-light);
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 10px 14px;
+  line-height: 1.5;
+}
+.form-note span { color: var(--orange); font-weight: 600; }
+
+/* Acciones */
+.agregar-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+.btn-cancelar {
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-mid);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color .18s, color .18s;
+}
+.btn-cancelar:hover {
+  border-color: var(--accent-green);
+  color: var(--text-dark);
+}
+.btn-guardar {
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent-green);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s;
+}
+.btn-guardar:hover { background: #4b7b4d; }
+
+/* ─── Botón Eliminar en Tarjeta ─── */
+.btn-eliminar {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  margin-left: 8px;
+}
+.btn-eliminar:hover {
+  background: rgba(220, 70, 70, 0.1);
+  color: #dc4646;
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "id_campo": "campo-001",
+    "id_usuario": 1,
+    "nombre_campo": "Parcela San Andrés",
+    "region": "Atlixco",
+    "hectareas_total": 8.5,
+    "cultivos": [
+      {
+        "id_cultivo": "cult-001",
+        "tipo": "maiz",
+        "nombre": "Maíz blanco",
+        "hectareas": 4.0,
+        "fecha_siembra": "2026-02-10",
+        "fecha_estimada_cosecha": "2026-07-20",
+        "variedad": "H-70",
+        "riego": "temporal",
+        "historial": []
+      },
+      {
+        "id_cultivo": "cult-002",
+        "tipo": "frijol",
+        "nombre": "Frijol negro",
+        "hectareas": 2.5,
+        "fecha_siembra": "2026-03-01",
+        "fecha_estimada_cosecha": "2026-07-10",
+        "variedad": "Negro Jamapa",
+        "riego": "temporal",
+        "historial": []
+      },
+      {
+        "id_cultivo": "cult-003",
+        "tipo": "flores",
+        "nombre": "Cempasúchil",
+        "hectareas": 2.0,
+        "fecha_siembra": "2026-04-01",
+        "fecha_estimada_cosecha": "2026-10-01",
+        "variedad": "Flor de muerto",
+        "riego": "aspersión",
+        "historial": []
+      }
+    ]
+  },
+  {
+    "id_campo": "campo-002",
+    "id_usuario": 2,
+    "nombre_campo": "Rancho La Esperanza",
+    "region": "Tehuacán",
+    "hectareas_total": 12.0,
+    "cultivos": [
+      {
+        "id_cultivo": "cult-004",
+        "tipo": "maiz",
+        "nombre": "Maíz amarillo",
+        "hectareas": 5.0,
+        "fecha_siembra": "2026-02-20",
+        "fecha_estimada_cosecha": "2026-08-05",
+        "variedad": "VS-536",
+        "riego": "temporal",
+        "historial": []
+      },
+      {
+        "id_cultivo": "cult-005",
+        "tipo": "chile",
+        "nombre": "Chile mirasol",
+        "hectareas": 4.0,
+        "fecha_siembra": "2026-03-10",
+        "fecha_estimada_cosecha": "2026-09-15",
+        "variedad": "Mirasol regional",
+        "riego": "goteo",
+        "historial": []
+      },
+      {
+        "id_cultivo": "cult-006",
+        "tipo": "agave",
+        "nombre": "Agave verde",
+        "hectareas": 3.0,
+        "fecha_siembra": "2025-01-15",
+        "fecha_estimada_cosecha": "2031-01-15",
+        "variedad": "Agave angustifolia",
+        "riego": "temporal",
+        "historial": []
+      }
+    ]
+  }
+]

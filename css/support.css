@@ -1,0 +1,123 @@
+/* ============================================================
+   support.css — AgroAlerta · Apoyo Técnico
+   ============================================================ */
+
+/* ─── Contenido principal ─── */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Card de soporte ─── */
+.support-card {
+  width: 100%;
+  max-width: 640px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px 28px;
+  animation: fadeUp .4s ease;
+}
+
+/* ─── Encabezado ─── */
+.support-header {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.support-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.support-subtitle {
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+/* ─── Formulario ─── */
+.support-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+}
+
+/* Inputs */
+.form-group input,
+.form-group textarea {
+  padding: 18px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+  resize: none;
+}
+
+.form-group textarea {
+  min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(90, 143, 92, .12);
+}
+
+/* ─── Botón ─── */
+.support-btn {
+  margin-top: 6px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent-green);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.support-btn:hover {
+  background: #4b7b4d;
+}
+
+/* ─── Mensaje de estado ─── */
+.support-message {
+  font-size: 13px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.support-message.success {
+  background: rgba(76, 175, 125, .08);
+  border: 1px solid rgba(76, 175, 125, .18);
+  color: #2f7d53;
+}
+
+.support-message.error {
+  background: rgba(220, 70, 70, .08);
+  border: 1px solid rgba(220, 70, 70, .18);
+  color: #b84040;
+}

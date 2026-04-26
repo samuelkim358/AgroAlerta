@@ -1,0 +1,360 @@
+/* ============================================================
+   styles.css — AgroAlerta · Estilos globales
+   Sidebar, topbar, navegación y utilidades compartidas
+   ============================================================ */
+
+/* ─── Variables globales ─── */
+:root {
+  --sidebar-bg:     #1e2d1f;
+  --sidebar-hover:  #2e4530;
+  --sidebar-active: #3a5c3c;
+  --accent-green:   #5a8f5c;
+  --accent-light:   #9dc49e;
+
+  --bg:       #f4f6f0;
+  --surface:  #ffffff;
+  --border:   #e2e8df;
+
+  --text-dark:  #1a2b1b;
+  --text-mid:   #4a5e4b;
+  --text-light: #8a9e8b;
+
+  --orange: #e07b39;
+  --blue:   #4a90b8;
+  --green:  #4caf7d;
+  --olive:  #8a9e3a;
+
+  --radius: 14px;
+  --shadow: 0 2px 12px rgba(30, 45, 31, .08);
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ─── Sidebar ─── */
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: visible;         /* visible para que el botón sobresalga */
+  transition: width .3s ease, min-width .3s ease;
+}
+
+.sidebar.collapsed {
+  width: 64px;
+  min-width: 64px;
+}
+
+/* Efecto decorativo de fondo */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(90,143,92,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── Botón toggle ─── */
+.sidebar-toggle {
+  position: absolute;
+  top: 18px;
+  right: -11px;
+  width: 22px;
+  height: 22px;
+  background: var(--accent-green);
+  border: 2px solid var(--sidebar-bg);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 20;
+  user-select: none;
+  transition: background .18s;  /* el botón NO rota, solo cambia color */
+}
+
+.sidebar-toggle:hover { background: var(--accent-light); }
+
+/* Solo la flecha interna rota */
+.toggle-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform .3s ease;
+  transform: rotate(0deg);
+}
+
+.sidebar.collapsed .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* ─── Ocultar textos al colapsar ─── */
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .logo-sub,
+.sidebar.collapsed .nav a .nav-label,
+.sidebar.collapsed .sidebar-bottom a .nav-label {
+  display: none;
+}
+
+/* ─── Ajustes de layout al colapsar ─── */
+.sidebar.collapsed .nav             { padding: 18px 8px; overflow: hidden; }
+.sidebar.collapsed .sidebar-bottom  { padding: 14px 8px 22px; }
+.sidebar.collapsed .sidebar-logo    { padding: 20px 8px; }
+.sidebar.collapsed .nav-divider     { margin: 8px 4px; }
+
+.sidebar.collapsed .nav a,
+.sidebar.collapsed .sidebar-bottom a {
+  justify-content: center;
+  padding: 10px 0;
+  gap: 0;
+}
+
+/* Tamaño del logo al colapsar — ajusta width/height a tu gusto */
+.sidebar.collapsed .logo-img,
+.sidebar.collapsed .logo-icon-fallback {
+  width: 36px;
+  height: 36px;
+}
+
+/* Tamaño de íconos al colapsar — ajusta font-size a tu gusto */
+.sidebar.collapsed .nav-icon {
+  font-size: 20px;
+  width: auto;
+}
+
+/* ─── Tooltip al colapsar ─── */
+.sidebar.collapsed .nav a:hover::after {
+  content: attr(data-label);
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--sidebar-hover);
+  color: #e8f0e8;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* ─── Logo ─── */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 26px 22px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  text-align: center;
+}
+
+.logo-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 14px;
+  flex-shrink: 0;
+  transition: width .3s ease, height .3s ease;
+}
+
+/* Fallback si no existe la imagen */
+.logo-icon-fallback {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--accent-green), #7abf7c);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  transition: width .3s ease, height .3s ease;
+}
+
+.logo-text { font-size: 1.6rem; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+
+.logo-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  color: var(--accent-light);
+  font-weight: 300;
+  letter-spacing: .04em;
+}
+
+/* ─── Navegación ─── */
+.nav {
+  flex: 1;
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;          /* recorta el contenido del nav al colapsar */
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: rgba(200, 220, 200, .7);
+  font-size: 15.5px;
+  font-weight: 400;
+  transition: background .18s, color .18s;
+  position: relative;
+}
+
+.nav a:hover {
+  background: var(--sidebar-hover);
+  color: #d8ecd8;
+}
+
+.nav a.active {
+  background: var(--sidebar-active);
+  color: #e8f5e8;
+  font-weight: 500;
+}
+
+.nav a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 25%;
+  bottom: 25%;
+  width: 3px;
+  background: var(--accent-light);
+  border-radius: 0 3px 3px 0;
+}
+
+.nav-icon {
+  font-size: 20px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: font-size .2s ease;
+}
+
+.nav-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, .06);
+  margin: 8px 0;
+}
+
+/* ─── Cerrar sesión ─── */
+.sidebar-bottom {
+  padding: 14px 12px 22px;
+  border-top: 1px solid rgba(255, 255, 255, .06);
+}
+
+.sidebar-bottom a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: rgba(200, 200, 200, .5);
+  font-size: 15px;
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 10px;
+  transition: background .18s, color .18s;
+}
+
+.sidebar-bottom a:hover {
+  background: rgba(200, 60, 60, .12);
+  color: #f0a0a0;
+}
+
+/* ─── Main wrapper ─── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ─── Topbar ─── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px 0;
+}
+
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.page-sub {
+  font-size: 17.5px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar-date {
+  font-size: 12px;
+  color: var(--text-light);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5a8f5c, #3a6e3c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ─── Scrollbar global ─── */
+::-webkit-scrollbar         { width: 5px; }
+::-webkit-scrollbar-track   { background: transparent; }
+::-webkit-scrollbar-thumb   { background: var(--border); border-radius: 4px; }
+
+/* ─── Animaciones ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

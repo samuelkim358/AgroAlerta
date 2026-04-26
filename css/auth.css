@@ -1,0 +1,173 @@
+/* ============================================================
+   auth.css — AgroAlerta · Login / Registro
+   ============================================================ */
+
+body {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* ─── Tarjeta central ─── */
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 34px 30px;
+  animation: fadeUp .45s ease;
+}
+
+/* ─── Encabezado ─── */
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin-bottom: 14px;
+  border-radius: 14px;
+}
+
+.logo-text { 
+    font-size: 1.6rem; 
+    font-weight: 800; 
+    color: var(--primary); 
+    letter-spacing: -0.5px; 
+}
+.logo-text span { color: #16a34a; }
+
+.auth-subtitle {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* ─── Formulario ─── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+}
+
+/* ─── Select de regiones con scroll ─── */
+#region {
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+/* ─── Inputs y selects ─── */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  background: #fff;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(90, 143, 92, .12);
+}
+
+/* ─── Select scrollable ─── */
+#municipio {
+  height: auto;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+#municipio option {
+  padding: 8px;
+}
+
+/* ─── Botón principal ─── */
+.auth-btn {
+  margin-top: 8px;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent-green);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+
+.auth-btn:hover {
+  background: #4b7b4d;
+}
+
+.auth-btn:active {
+  transform: translateY(1px);
+}
+
+/* ─── Enlace inferior ─── */
+.auth-footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.auth-footer a {
+  color: var(--accent-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ─── Mensajes ─── */
+.auth-message {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.auth-message.error {
+  background: rgba(220, 70, 70, .08);
+  color: #b84040;
+  border: 1px solid rgba(220, 70, 70, .18);
+}
+
+.auth-message.success {
+  background: rgba(76, 175, 125, .08);
+  color: #2f7d53;
+  border: 1px solid rgba(76, 175, 125, .18);
+}

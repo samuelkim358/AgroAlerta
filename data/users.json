@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "Juan Pérez",
+    "usuario": "juan",
+    "password": "1234",
+    "email": "juan.perez@email.com",
+    "telefono": "2441234567",
+    "region": "Atlixco",
+    "iniciales": "JP"
+  },
+  {
+    "id": 2,
+    "nombre": "María López",
+    "usuario": "maria",
+    "password": "abcd",
+    "email": "m.lopez@email.com",
+    "telefono": "2499876543",
+    "region": "Tehuacán",
+    "iniciales": "ML"
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "alt-001",
+    "region": "Atlixco",
+    "tipo_cultivo": "maiz",
+    "nivel": "rojo",
+    "titulo": "Helada tardía en las próximas 48 h",
+    "descripcion": "Se pronostican temperaturas mínimas de -2 °C para la madrugada del 28 de abril. Las plantas de maíz en etapa de plántula son altamente vulnerables.",
+    "recomendacion": "Cubre los surcos con plástico o paja esta noche. Evita el riego por aspersión nocturno ya que acelera la pérdida de calor. Revisa las plantas a primera hora del amanecer.",
+    "fecha_inicio": "2026-04-26",
+    "fecha_fin": "2026-04-30"
+  },
+  {
+    "id": "alt-002",
+    "region": "Atlixco",
+    "tipo_cultivo": "frijol",
+    "nivel": "rojo",
+    "titulo": "Helada tardía — riesgo crítico en frijol",
+    "descripcion": "El frijol en etapa vegetativa es extremadamente sensible a heladas. Temperaturas bajo cero pueden destruir el follaje en pocas horas.",
+    "recomendacion": "Aplica riego de aspersión antes de las 20:00 h para elevar la temperatura del suelo. Considera cubrir las plantas más jóvenes. Monitorea daños al amanecer.",
+    "fecha_inicio": "2026-04-26",
+    "fecha_fin": "2026-04-30"
+  },
+  {
+    "id": "alt-003",
+    "region": "Atlixco",
+    "tipo_cultivo": "flores",
+    "nivel": "amarillo",
+    "titulo": "Helada tardía — precaución en flores",
+    "descripcion": "El cempasúchil puede tolerar temperaturas de hasta 0 °C por períodos cortos, pero las flores en desarrollo pueden sufrir daño estético permanente.",
+    "recomendacion": "Cubre los tablones más expuestos con manta térmica. Revisa el drenaje para evitar encharcamientos nocturnos que amplifican el frío.",
+    "fecha_inicio": "2026-04-26",
+    "fecha_fin": "2026-04-30"
+  },
+  {
+    "id": "alt-004",
+    "region": "Atlixco",
+    "tipo_cultivo": "general",
+    "nivel": "amarillo",
+    "titulo": "Vientos fuertes esperados (40–60 km/h)",
+    "descripcion": "Un frente frío activo traerá rachas de viento superiores a 50 km/h el 27 y 28 de abril. Puede provocar acame en cultivos altos y daños en invernaderos.",
+    "recomendacion": "Asegura estructuras de apoyo en plantas de tallo alto. Revisa y refuerza los plásticos de invernaderos. Pospón aplicaciones de agroquímicos hasta que el viento ceda.",
+    "fecha_inicio": "2026-04-26",
+    "fecha_fin": "2026-04-29"
+  },
+  {
+    "id": "alt-005",
+    "region": "Tehuacán",
+    "tipo_cultivo": "maiz",
+    "nivel": "amarillo",
+    "titulo": "Sequía moderada — déficit hídrico acumulado",
+    "descripcion": "La región acumula 18 días sin lluvia significativa. El maíz en etapa de desarrollo vegetativo requiere humedad constante para mantener su ritmo de crecimiento.",
+    "recomendacion": "Incrementa la frecuencia de riego si tienes acceso a riego por goteo o gravedad. Aplica acolchado en los surcos para reducir evaporación. Evita fertilizar en seco.",
+    "fecha_inicio": "2026-04-20",
+    "fecha_fin": "2026-05-05"
+  },
+  {
+    "id": "alt-006",
+    "region": "Tehuacán",
+    "tipo_cultivo": "chile",
+    "nivel": "rojo",
+    "titulo": "Sequía severa — riesgo de pérdida en chile",
+    "descripcion": "El chile mirasol es sensible al estrés hídrico durante la floración. Con el déficit actual, existe riesgo de caída de flores y aborto de frutos.",
+    "recomendacion": "Prioriza el riego en parcelas de chile sobre otros cultivos. Aplica riego cada 3 días si tienes sistema de goteo. Considera uso de bioestimulantes para reducir el estrés.",
+    "fecha_inicio": "2026-04-20",
+    "fecha_fin": "2026-05-05"
+  },
+  {
+    "id": "alt-007",
+    "region": "Tehuacán",
+    "tipo_cultivo": "agave",
+    "nivel": "verde",
+    "titulo": "Condiciones estables para agave",
+    "descripcion": "El agave tolera bien las condiciones de sequía actuales. No se registra riesgo inmediato para este cultivo en la región.",
+    "recomendacion": "Aprovecha para revisar el estado sanitario de las plantas. Elimina hijuelos excesivos para concentrar nutrientes en la planta principal.",
+    "fecha_inicio": "2026-04-15",
+    "fecha_fin": "2026-05-15"
+  },
+  {
+    "id": "alt-008",
+    "region": "Tehuacán",
+    "tipo_cultivo": "general",
+    "nivel": "amarillo",
+    "titulo": "Ola de calor — temperaturas máximas de 36 °C",
+    "descripcion": "Se esperan temperaturas superiores a 34 °C durante los próximos 5 días. El calor extremo aumenta la evapotranspiración y el estrés en cultivos sensibles.",
+    "recomendacion": "Riega en las primeras horas de la mañana o al anochecer. Evita labores pesadas en el campo entre las 11:00 y 16:00 h. Hidratación constante para los trabajadores.",
+    "fecha_inicio": "2026-04-24",
+    "fecha_fin": "2026-04-30"
+  },
+  {
+    "id": "alt-009",
+    "region": "Zacatlán",
+    "tipo_cultivo": "maiz",
+    "nivel": "amarillo",
+    "titulo": "Lluvias intensas previstas",
+    "descripcion": "Se esperan precipitaciones de 40–60 mm en 24 h. Existe riesgo de encharcamiento en parcelas con drenaje deficiente.",
+    "recomendacion": "Revisa y limpia los canales de desagüe antes de la lluvia. Evita aplicar fertilizantes nitrogenados las 48 h previas para no perderlos por lixiviación.",
+    "fecha_inicio": "2026-04-27",
+    "fecha_fin": "2026-05-01"
+  },
+  {
+    "id": "alt-010",
+    "region": "Teziutlán",
+    "tipo_cultivo": "cafe",
+    "nivel": "verde",
+    "titulo": "Condiciones favorables para café",
+    "descripcion": "Las lluvias recientes y temperatura fresca son ideales para el desarrollo del café en etapa de llenado de grano.",
+    "recomendacion": "Buen momento para aplicar fertilización foliar. Monitorea la presencia de roya dado que la humedad alta puede favorecer su desarrollo.",
+    "fecha_inicio": "2026-04-20",
+    "fecha_fin": "2026-05-10"
+  },
+  {
+    "id": "alt-011",
+    "region": "Izúcar de Matamoros",
+    "tipo_cultivo": "cana",
+    "nivel": "verde",
+    "titulo": "Condiciones óptimas para caña de azúcar",
+    "descripcion": "Las temperaturas actuales y la humedad del suelo favorecen el macollamiento de la caña. Sin alertas activas para esta región.",
+    "recomendacion": "Aprovecha para realizar el aporque y aplicar herbicidas preemergentes si aún no lo has hecho.",
+    "fecha_inicio": "2026-04-18",
+    "fecha_fin": "2026-05-08"
+  },
+  {
+    "id": "alt-012",
+    "region": "Chignahuapan",
+    "tipo_cultivo": "papa",
+    "nivel": "rojo",
+    "titulo": "Tizón tardío — condiciones de alta humedad",
+    "descripcion": "La humedad relativa sostenida por encima del 85% y temperaturas de 12–18 °C son condiciones ideales para el desarrollo de Phytophthora infestans en papa.",
+    "recomendacion": "Aplica fungicidas preventivos de contacto de inmediato. Monitorea diariamente el follaje. Mejora la ventilación entre surcos si es posible. No riegues por aspersión.",
+    "fecha_inicio": "2026-04-22",
+    "fecha_fin": "2026-05-03"
+  }
+]

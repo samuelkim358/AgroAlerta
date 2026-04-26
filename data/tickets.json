@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tck-001",
+    "user": "Arturo Pérez",
+    "initials": "AP",
+    "subject": "Falla en sensor de humedad",
+    "message": "El sensor marca 0% constantemente aunque el suelo está húmedo.",
+    "date": "2026-04-25",
+    "status": "no_resuelto",
+    "response": ""
+  },
+  {
+    "id": "tck-002",
+    "user": "Laura Gómez",
+    "initials": "LG",
+    "subject": "Activación de alertas tardía",
+    "message": "Las alertas de lluvia llegan cuando ya comenzó a llover.",
+    "date": "2026-04-24",
+    "status": "resuelto",
+    "response": "Se ajustó el umbral de predicción meteorológica en la región."
+  },
+  {
+    "id": "tck-003",
+    "user": "Juan Hernández",
+    "initials": "JH",
+    "subject": "Error en registro de cultivo",
+    "message": "No me guarda los datos del cultivo de maíz.",
+    "date": "2026-04-23",
+    "status": "no_resuelto",
+    "response": ""
+  }
+]

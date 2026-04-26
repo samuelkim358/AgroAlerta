@@ -1,0 +1,93 @@
+[
+  {
+    "id": "inst-001",
+    "nombre": "Benemérita Universidad Autónoma de Puebla",
+    "siglas": "BUAP",
+    "tipo": "universidad",
+    "descripcion": "La Facultad de Ingeniería Agronómica y Biotecnología busca parcelas para prácticas de campo en manejo de cultivos, mejoramiento genético y agricultura de precisión.",
+    "interes": ["maiz", "frijol", "chile", "trigo"],
+    "beneficio_agricultor": "Acceso a análisis de suelo gratuitos, asesoría técnica continua y posibilidad de recibir herramientas de monitoreo en préstamo.",
+    "duracion_meses": 6,
+    "regiones": ["Atlixco", "San Andrés Cholula", "San Pedro Cholula", "Tepeaca", "Amozoc", "Acatzingo"],
+    "contacto": "agronomiá@buap.mx",
+    "logo_inicial": "BU"
+  },
+  {
+    "id": "inst-002",
+    "nombre": "Instituto Tecnológico Superior de Tehuacán",
+    "siglas": "ITST",
+    "tipo": "tecnologico",
+    "descripcion": "El programa de Ingeniería en Agronomía requiere parcelas experimentales para tesis y proyectos de titulación en riego eficiente y cultivos de zonas áridas.",
+    "interes": ["chile", "agave", "maiz", "nopal"],
+    "beneficio_agricultor": "Instalación de sensores de humedad y temperatura sin costo, reportes mensuales del estado del cultivo y asesoría en sistemas de riego.",
+    "duracion_meses": 8,
+    "regiones": ["Tehuacán", "Sierra Negra", "Ciudad Serdán", "Tecamachalco"],
+    "contacto": "investigacion@itstehuacan.edu.mx",
+    "logo_inicial": "IT"
+  },
+  {
+    "id": "inst-003",
+    "nombre": "INIFAP — Campo Experimental Valles Centrales",
+    "siglas": "INIFAP",
+    "tipo": "centro_investigacion",
+    "descripcion": "El Instituto Nacional de Investigaciones Forestales, Agrícolas y Pecuarias desarrolla variedades mejoradas adaptadas al cambio climático y necesita parcelas de validación en diversas regiones.",
+    "interes": ["maiz", "frijol", "trigo", "sorgo", "cebada"],
+    "beneficio_agricultor": "Acceso prioritario a semillas mejoradas, capacitación en buenas prácticas agrícolas y vinculación con programas federales de apoyo.",
+    "duracion_meses": 12,
+    "regiones": ["Libres", "Chignahuapan", "Zacatlán", "Acatzingo", "Tepeaca", "Ciudad Serdán", "Quimixtlán"],
+    "contacto": "valles.centrales@inifap.gob.mx",
+    "logo_inicial": "IN"
+  },
+  {
+    "id": "inst-004",
+    "nombre": "Universidad Popular Autónoma del Estado de Puebla",
+    "siglas": "UPAEP",
+    "tipo": "universidad",
+    "descripcion": "El laboratorio de tecnologías emergentes para el agro busca socios para probar sistemas de monitoreo con IoT, drones agrícolas y análisis de datos climáticos en campo real.",
+    "interes": ["flores", "hortalizas", "fresa", "jitomate"],
+    "beneficio_agricultor": "Instalación de estación meteorológica propia, acceso a plataforma de alertas climáticas avanzadas y reportes automatizados vía aplicación.",
+    "duracion_meses": 4,
+    "regiones": ["Atlixco", "San Martín Texmelucan", "Puebla Interior 1", "Puebla Interior 2", "San Andrés Cholula"],
+    "contacto": "agrotech@upaep.mx",
+    "logo_inicial": "UP"
+  },
+  {
+    "id": "inst-005",
+    "nombre": "Colegio de Postgraduados — Campus Puebla",
+    "siglas": "COLPOS",
+    "tipo": "centro_investigacion",
+    "descripcion": "Investigadores del programa de Agroecología buscan parcelas para estudios de largo plazo sobre resiliencia de sistemas agrícolas ante el cambio climático y biodiversidad del suelo.",
+    "interes": ["maiz", "cafe", "agave", "frijol", "amaranto"],
+    "beneficio_agricultor": "Diagnóstico integral del suelo y agua, plan de manejo agroecológico personalizado y acceso a red nacional de productores sustentables.",
+    "duracion_meses": 18,
+    "regiones": ["Teziutlán", "Zacapoaxtla", "Huehuetla", "Xicotepec", "Huauchinango", "Tehuacán", "Sierra Negra"],
+    "contacto": "campuspuebla@colpos.mx",
+    "logo_inicial": "CP"
+  },
+  {
+    "id": "inst-006",
+    "nombre": "Instituto Tecnológico de Zacapoaxtla",
+    "siglas": "ITZ",
+    "tipo": "tecnologico",
+    "descripcion": "Estudiantes de Ingeniería en Agronomía desarrollan proyectos de transferencia tecnológica en zonas de alta marginación. Buscan parcelas en la sierra norte para implementar técnicas de conservación de suelo.",
+    "interes": ["cafe", "maiz", "papa", "durazno"],
+    "beneficio_agricultor": "Asesoría técnica in situ, apoyo en gestión de apoyos gubernamentales y capacitación en registros productivos.",
+    "duracion_meses": 6,
+    "regiones": ["Zacapoaxtla", "Teziutlán", "Huauchinango", "Xicotepec", "Zacatlán", "Chignahuapan"],
+    "contacto": "vinculacion@itz.edu.mx",
+    "logo_inicial": "IZ"
+  },
+  {
+    "id": "inst-007",
+    "nombre": "Universidad Tecnológica de Izúcar de Matamoros",
+    "siglas": "UTIM",
+    "tipo": "universidad",
+    "descripcion": "El programa de Tecnología en Producción Agroindustrial requiere parcelas para desarrollar proyectos de valor agregado: deshidratados, aceites esenciales y producción orgánica certificada.",
+    "interes": ["cana", "flores", "chile", "ajonjoli"],
+    "beneficio_agricultor": "Apoyo en trámites de certificación orgánica, estudio de rentabilidad del cultivo y contacto con compradores de producto procesado.",
+    "duracion_meses": 10,
+    "regiones": ["Izúcar de Matamoros", "Chiautla", "Acatlán", "Tepexi de Rodríguez"],
+    "contacto": "agroindustria@utim.edu.mx",
+    "logo_inicial": "UI"
+  }
+]
