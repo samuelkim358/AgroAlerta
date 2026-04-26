@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroAlerta — Registro</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <!-- Encabezado -->
+      <div class="auth-header">
+        <img src="../assets/images/logo.png" alt="AgroAlerta Logo" class="auth-logo">
+        <h1 class="auth-title">Crear cuenta</h1>
+        <p class="auth-subtitle">Registra tus datos para comenzar a usar AgroAlerta</p>
+      </div>
+
+      <!-- Mensajes -->
+      <div id="authMessage"></div>
+
+      <!-- Formulario -->
+      <form class="auth-form" id="registerForm">
+
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" name="usuario" placeholder="Crea un nombre de usuario" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="Crea una contraseña" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono (10 dígitos)</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="2221234567" pattern="[0-9]{10}" required>
+        </div>
+
+        <div class="form-group">
+        <label for="region">Región</label>
+        <select id="region" name="region" required>
+            <option value="Xicotepec">01 Xicotepec</option>
+            <option value="Huauchinango">02 Huauchinango</option>
+            <option value="Zacatlán">03 Zacatlán</option>
+            <option value="Huehuetla">04 Huehuetla</option>
+            <option value="Zacapoaxtla">05 Zacapoaxtla</option>
+            <option value="Teziutlán">06 Teziutlán</option>
+            <option value="Chignahuapan">07 Chignahuapan</option>
+            <option value="Libres">08 Libres</option>
+            <option value="Quimixtlán">09 Quimixtlán</option>
+            <option value="Acatzingo">10 Acatzingo</option>
+            <option value="Ciudad Serdán">11 Ciudad Serdán</option>
+            <option value="Tecamachalco">12 Tecamachalco</option>
+            <option value="Tehuacán">13 Tehuacán</option>
+            <option value="Sierra Negra">14 Sierra Negra</option>
+            <option value="Izúcar de Matamoros">15 Izúcar de Matamoros</option>
+            <option value="Chiautla">16 Chiautla</option>
+            <option value="Acatlán">17 Acatlán</option>
+            <option value="Tepexi de Rodríguez">18 Tepexi de Rodríguez</option>
+            <option value="Atlixco">19 Atlixco</option>
+            <option value="San Martín Texmelucan">20 San Martín Texmelucan</option>
+            <option value="Puebla Interior 1">21 Puebla Interior 1</option>
+            <option value="Puebla Interior 2">22 Puebla Interior 2</option>
+            <option value="Puebla Interior 3">23 Puebla Interior 3</option>
+            <option value="Puebla Interior 4">24 Puebla Interior 4</option>
+            <option value="Puebla Interior 5">25 Puebla Interior 5</option>
+            <option value="Puebla Interior 6">26 Puebla Interior 6</option>
+            <option value="Puebla Interior 7">27 Puebla Interior 7</option>
+            <option value="San Andrés Cholula">28 San Andrés Cholula</option>
+            <option value="San Pedro Cholula">29 San Pedro Cholula</option>
+            <option value="Cuautlancingo">30 Cuautlancingo</option>
+            <option value="Amozoc">31 Amozoc</option>
+            <option value="Tepeaca">32 Tepeaca</option>
+        </select>
+        </div>
+
+        <button type="submit" class="auth-btn">Registrarse</button>
+
+      </form>
+
+      <!-- Enlace inferior -->
+      <div class="auth-footer">
+        ¿Ya tienes cuenta?
+        <a href="login.html">Iniciar sesión</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="../js/auth.js"></script>
+</body>
+</html>
