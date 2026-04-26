@@ -1,4 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* ============================================================
+   panel_alerta.js — AgroAlerta
+   Gestión de alertas regionales y planes de acción por cultivo.
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", async () => {
     // 1. VALIDACIÓN DE SESIÓN
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (!currentUser) {
@@ -29,7 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. CARGA DINÁMICA DE DATOS
+    // 4. ASEGURAR DATOS EN LOCALSTORAGE (Solución al problema de carga)
+    // Si no existen datos de campos, los traemos del JSON antes de cargar el panel
+    if (!localStorage.getItem("camposData")) {
+        try {
+            const res = await fetch("../data/campos.json");
+            if (res.ok) {
+                const data = await res.json();
+                localStorage.setItem("camposData", JSON.stringify(data));
+            } else {
+                throw new Error("No se pudo obtener campos.json");
+            }
+        } catch (error) {
+            console.error("Error en precarga de datos:", error);
+            localStorage.setItem("camposData", JSON.stringify([]));
+        }
+    }
+
+    // 5. CARGA DINÁMICA DE ALERTAS Y RECOMENDACIONES
     loadAlertsData();
 
     async function loadAlertsData() {
@@ -40,23 +62,42 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!alertsStrip || !recsList) return;
 
         const userRegion = currentUser.region || "Atlixco";
-        const camposData = JSON.parse(localStorage.getItem("camposData")) || [];
         
-        // Buscamos el campo del usuario (asegurando coincidencia de tipo de dato)
-        const miCampo = camposData.find(c => String(c.id_usuario) === String(currentUser.id));
-        const misCultivos = miCampo ? miCampo.cultivos : [];
+        // Obtenemos los datos ya asegurados en el paso anterior
+        let camposData = JSON.parse(localStorage.getItem("camposData")) || [];
+        
+        // Buscamos el campo que pertenece al usuario logueado
+        let miCampo = camposData.find(c => String(c.id_usuario) === String(currentUser.id));
 
-        if (regionSubtitle) regionSubtitle.textContent = `Riesgos detectados en ${userRegion}`;
+        // Si el usuario no tiene un campo registrado aún (usuario nuevo), creamos uno base
+        if (!miCampo) {
+            miCampo = {
+                id_campo: `campo-${currentUser.id}`,
+                id_usuario: currentUser.id,
+                nombre_campo: "Mi Parcela",
+                region: userRegion,
+                cultivos: []
+            };
+            camposData.push(miCampo);
+            localStorage.setItem("camposData", JSON.stringify(camposData));
+        }
+
+        const misCultivos = miCampo.cultivos || [];
+
+        if (regionSubtitle) {
+            regionSubtitle.textContent = `Riesgos detectados en ${userRegion}`;
+        }
 
         try {
+            // Cargar alertas meteorológicas y biológicas
             const response = await fetch("../data/alerts.json");
-            if (!response.ok) throw new Error("Error al cargar JSON");
+            if (!response.ok) throw new Error("Error al cargar alerts.json");
             const todasLasAlertas = await response.json();
 
             // Filtrar alertas por la región del usuario
             const alertasFiltradas = todasLasAlertas.filter(a => a.region === userRegion);
 
-            // --- RENDERIZAR ALERTAS (BANNER SUPERIOR CON UBICACIÓN) ---
+            // --- RENDERIZAR ALERTAS (BANNER SUPERIOR) ---
             if (alertasFiltradas.length === 0) {
                 alertsStrip.innerHTML = `
                     <div class="alert-pill info">
@@ -81,25 +122,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 }).join("");
             }
 
-            // --- RENDERIZAR RECOMENDACIONES (GRID DE TARJETAS LIMPIAS) ---
+            // --- RENDERIZAR RECOMENDACIONES (PLANES DE ACCIÓN) ---
             if (misCultivos.length === 0) {
-                recsList.innerHTML = `<p style="padding:20px; color:var(--text-light);">No tienes cultivos registrados para generar acciones.</p>`;
+                recsList.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; background: #f8fafc; border-radius: 20px; border: 2px dashed #cbd5e0;">
+                        <p style="color: var(--text-light); margin-bottom: 15px;">No tienes cultivos registrados para generar acciones específicas.</p>
+                        <a href="tus_cultivos.html" style="display:inline-block; padding: 10px 20px; background: var(--accent-green); color: white; border-radius: 10px; text-decoration: none; font-weight: 600;">
+                            Registrar mis cultivos
+                        </a>
+                    </div>`;
                 return;
             }
 
             const iconos = { 
                 maiz: "🌽", frijol: "🫘", chile: "🌶️", flores: "🌸", 
-                agave: "🌵", cafe: "☕", papa: "🥔", cana: "🎋" 
+                agave: "🌵", cafe: "☕", papa: "🥔", cana: "🎋", hortalizas: "🥬"
             };
 
             const cardsHTML = misCultivos.map(cultivo => {
                 // Buscamos alerta específica para el tipo de cultivo o una general de la región
-                const alertaAsociada = alertasFiltradas.find(a => a.tipo_cultivo === cultivo.tipo || a.tipo_cultivo === "general");
+                const alertaAsociada = alertasFiltradas.find(a => 
+                    a.tipo_cultivo.toLowerCase() === cultivo.tipo.toLowerCase() || 
+                    a.tipo_cultivo === "general"
+                );
 
                 return `
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div class="rec-icon-circle">${iconos[cultivo.tipo] || "🌱"}</div>
+                            <div class="rec-icon-circle">${iconos[cultivo.tipo.toLowerCase()] || "🌱"}</div>
                             <div class="rec-meta">
                                 <h4>${cultivo.nombre}</h4>
                                 <span>${cultivo.tipo} • ${cultivo.hectareas} ha</span>
@@ -113,12 +163,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
             }).join("");
 
-            // Inyectamos el grid completo
             recsList.innerHTML = `<div class="recommendations-grid">${cardsHTML}</div>`;
 
         } catch (error) {
-            console.error("Error:", error);
-            alertsStrip.innerHTML = `<div class="alert-pill rojo"><strong>Error de conexión</strong> No se pudo sincronizar con el servidor de alertas.</div>`;
+            console.error("Error en la carga de alertas:", error);
+            if (alertsStrip) {
+                alertsStrip.innerHTML = `<div class="alert-pill rojo"><strong>Error de conexión</strong> No se pudo sincronizar con el servidor de alertas.</div>`;
+            }
         }
     }
 });
