@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgroAlerta — Colaboraciones</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Estilos: globales primero, luego específicos de página -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/colaboraciones.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       SIDEBAR
+  ═══════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Botón para colapsar / expandir -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <span class="toggle-arrow">‹</span>
+    </button>
+
+    <div class="sidebar-logo">
+      <!--
+        Logo desde assets/images/logo.png
+        Si la imagen no carga, el onerror muestra el icono emoji de respaldo
+      -->
+      <img
+        class="logo-img"
+        src="../assets/images/logo.png"
+        alt="AgroAlerta logo"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="logo-icon-fallback" style="display:none;">🌿</div>
+    </div>
+
+    <nav class="nav">
+      <a href="panel_alerta.html" data-label="Panel de Alertas">
+        <span class="nav-icon">⊞</span> <span class="nav-label">Panel de Alertas</span>
+      </a>
+      <a href="tus_cultivos.html" data-label="Tus Cultivos">
+        <span class="nav-icon">＋</span> <span class="nav-label">Tus Cultivos</span>
+      </a>
+      <a href="colaboraciones.html" class="active" data-label="Colaboraciones">
+        <span class="nav-icon">◷</span> <span class="nav-label">Colaboraciones</span>
+      </a>
+      <div class="nav-divider"></div>
+      <a href="support.html" data-label="Apoyo Técnico">
+        <span class="nav-icon">🛠</span> <span class="nav-label">Apoyo Técnico</span>
+      </a>
+      <a href="foro.html" data-label="Foro">
+        <span class="nav-icon">🗨</span> <span class="nav-label">Foro</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="../index.html" id="btnLogout" data-label="Cerrar sesión">
+        <span class="nav-icon">⇤</span> <span class="nav-label">Cerrar sesión</span>
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════════════════════════
+       MAIN
+  ═══════════════════════════════════ -->
+  <div class="main">
+      <div class="topbar">
+          <div>
+              <h1 class="page-title">Vinculación Académica</h1>
+              <p class="page-sub" id="regionSubtitle">Cargando región...</p>
+          </div>
+          <div class="topbar-right">
+              <div class="topbar-date" id="todayDate">📅 --</div>
+              <div class="avatar" id="userAvatar">--</div>
+          </div>
+      </div>
+
+      <div class="content">
+          <div id="activeCollaborationBanner" class="active-banner" style="display: none;">
+              </div>
+
+          <div class="section-header">
+              <h2 class="section-headline">Instituciones en tu área</h2>
+              <p>Postula tus parcelas para recibir herramientas tecnológicas y asesoría.</p>
+          </div>
+
+          <div class="collab-grid" id="collabGrid">
+              </div>
+      </div>
+  </div>
+  </div><script src="../js/colaboraciones.js"></script>
+</body>
+</html>
